@@ -1,0 +1,31 @@
+{
+  "name": "types-wrapper",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
+    "test": "mocha --exit"
+  },
+  "keywords": [
+    "ast",
+    "wrapper"
+  ],
+  "author": "Harry Wright",
+  "license": "ISC",
+  "mocha": {
+    "ui": "bdd",
+    "reporter": "dot"
+  },
+  "dependencies": {
+    "ast-types": "^0.14.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "codecov": "^3.8.3",
+    "espree": "^8.0.0",
+    "mocha": "^9.0.3",
+    "nyc": "^15.1.0",
+    "recast": "^0.20.5"
+  }
+}
