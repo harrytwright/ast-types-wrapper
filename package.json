@@ -1,7 +1,7 @@
 {
-  "name": "types-wrapper",
-  "version": "0.0.1",
-  "description": "",
+  "name": "@harrytwright/ast-types-wrapper",
+  "version": "0.0.1-beta.1",
+  "description": "A easy to use convenience ast-types wrapper for JS",
   "main": "index.js",
   "scripts": {
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",

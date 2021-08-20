@@ -119,3 +119,4 @@ apidoc
 old_src
 ./config
 /old_src/
+/test.js
