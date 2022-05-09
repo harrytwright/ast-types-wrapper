@@ -3,6 +3,15 @@ const k = require('ast-types/gen/kinds')
 
 const { identifier, literal } = require('../utils')
 
+// Very weird use-case
+function UNSTABLE__merge (object, ...elements) {
+  for (const element of [...elements]) {
+    object.properties = object.properties.concat(
+      element.properties
+    )
+  }
+}
+
 /**
  * Create a standard object property
  *
@@ -73,5 +82,6 @@ function _property (key, value, shorthand) {
 }
 
 module.exports = {
-  property
+  property,
+  UNSTABLE__merge
 }
