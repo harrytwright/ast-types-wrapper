@@ -1,46 +1,43 @@
-const chai = require('chai')
 const recast = require('recast')
 const { namedTypes: n, builders: b } = require('ast-types')
-
-const assert = chai.assert
 
 const { property } = require('../src/object')
 const { identifier } = require('../src/utils')
 const { constant, variable, scoped, declarator, req } = require('../src/variable')
 
-describe('variable.constant', function () {
-  it('should create a constant', function () {
+describe('variable.constant', () => {
+  it('should create a constant', () => {
     const name = constant('name', 'value')
-    assert(n.VariableDeclaration.check(name), 'name is VariableDeclaration')
+    expect(n.VariableDeclaration.check(name)).toBeTruthy()
   })
 
-  it('should create a constant with a identifier', function () {
+  it('should create a constant with a identifier', () => {
     const name = constant('name', identifier('value'))
-    assert(n.VariableDeclaration.check(name), 'name is VariableDeclaration')
+    expect(n.VariableDeclaration.check(name)).toBeTruthy()
 
     const code = recast.print(name).code
-    assert(code === 'const name = value;', 'Should turn name into an constant')
+    expect(code === 'const name = value;').toBeTruthy()
   })
 
-  it('should work chainable', function () {
+  it('should work chainable', () => {
     const chained = constant.chainable(
       declarator('name', 'value'),
       declarator('value', 'name')
     )
 
-    assert(n.VariableDeclaration.check(chained), 'name is VariableDeclaration')
+    expect(n.VariableDeclaration.check(chained)).toBeTruthy()
 
     const code = recast.print(chained).code
-    assert(code === 'const name = "value", value = "name";', 'Should turn chained into a chained constant')
+    expect(code === 'const name = "value", value = "name";').toBeTruthy()
   })
 
-  it('should destruct objects', function () {
+  it('should destruct objects', () => {
     const destruct = constant.destructuring(identifier('parent'),
       property.shorthand('shorthand'),
       property.spread('rest'),
     )
 
-    assert(n.VariableDeclaration.check(destruct), 'destruct is VariableDeclaration')
+    expect(n.VariableDeclaration.check(destruct)).toBeTruthy()
 
     const code = recast.print(destruct, { tabWidth: 2 }).code
     // Pain in the ass but only way to test this w/out a file and fs patching
@@ -51,43 +48,43 @@ const {
 } = parent;
     `.replace('\n', '').trim()
 
-    assert(code === result, 'Should turn destruct into a destructed VariableDeclaration')
+    expect(code === result).toBeTruthy()
   });
 })
 
-describe('variable.variable', function () {
-  it('should create a constant', function () {
+describe('variable.variable', () => {
+  it('should create a constant', () => {
     const name = variable('name', 'value')
-    assert(n.VariableDeclaration.check(name), 'name is VariableDeclaration')
+    expect(n.VariableDeclaration.check(name)).toBeTruthy()
   })
 
-  it('should create a constant with a identifier', function () {
+  it('should create a constant with a identifier', () => {
     const name = variable('name', identifier('value'))
-    assert(n.VariableDeclaration.check(name), 'name is VariableDeclaration')
+    expect(n.VariableDeclaration.check(name)).toBeTruthy()
 
     const code = recast.print(name).code
-    assert(code === 'var name = value;', 'Should turn name into an constant')
+    expect(code === 'var name = value;').toBeTruthy()
   })
 
-  it('should work chainable', function () {
+  it('should work chainable', () => {
     const chained = variable.chainable(
       declarator('name', 'value'),
       declarator('value', 'name')
     )
 
-    assert(n.VariableDeclaration.check(chained), 'name is VariableDeclaration')
+    expect(n.VariableDeclaration.check(chained)).toBeTruthy()
 
     const code = recast.print(chained).code
-    assert(code === 'var name = "value", value = "name";', 'Should turn chained into a chained constant')
+    expect(code === 'var name = "value", value = "name";').toBeTruthy()
   })
 
-  it('should destruct objects', function () {
+  it('should destruct objects', () => {
     const destruct = variable.destructuring(identifier('parent'),
       property.shorthand('shorthand'),
       property.spread('rest'),
     )
 
-    assert(n.VariableDeclaration.check(destruct), 'destruct is VariableDeclaration')
+    expect(n.VariableDeclaration.check(destruct)).toBeTruthy()
 
     const code = recast.print(destruct, { tabWidth: 2 }).code
     // Pain in the ass but only way to test this w/out a file and fs patching
@@ -98,43 +95,43 @@ var {
 } = parent;
     `.replace('\n', '').trim()
 
-    assert(code === result, 'Should turn destruct into a destructed VariableDeclaration')
+    expect(code === result).toBeTruthy()
   });
 })
 
-describe('variable.scoped', function () {
-  it('should create a constant', function () {
+describe('variable.scoped', () => {
+  it('should create a constant', () => {
     const name = scoped('name', 'value')
-    assert(n.VariableDeclaration.check(name), 'name is VariableDeclaration')
+    expect(n.VariableDeclaration.check(name)).toBeTruthy()
   })
 
-  it('should create a constant with a identifier', function () {
+  it('should create a constant with a identifier', () => {
     const name = scoped('name', identifier('value'))
-    assert(n.VariableDeclaration.check(name), 'name is VariableDeclaration')
+    expect(n.VariableDeclaration.check(name)).toBeTruthy()
 
     const code = recast.print(name).code
-    assert(code === 'let name = value;', 'Should turn name into an constant')
+    expect(code === 'let name = value;').toBeTruthy()
   })
 
-  it('should work chainable', function () {
+  it('should work chainable', () => {
     const chained = scoped.chainable(
       declarator('name', 'value'),
       declarator('value', 'name')
     )
 
-    assert(n.VariableDeclaration.check(chained), 'name is VariableDeclaration')
+    expect(n.VariableDeclaration.check(chained)).toBeTruthy()
 
     const code = recast.print(chained).code
-    assert(code === 'let name = "value", value = "name";', 'Should turn chained into a chained constant')
+    expect(code === 'let name = "value", value = "name";').toBeTruthy()
   })
 
-  it('should destruct objects', function () {
+  it('should destruct objects', () => {
     const destruct = scoped.destructuring(identifier('parent'),
       property.shorthand('shorthand'),
       property.spread('rest'),
     )
 
-    assert(n.VariableDeclaration.check(destruct), 'destruct is VariableDeclaration')
+    expect(n.VariableDeclaration.check(destruct)).toBeTruthy()
 
     const code = recast.print(destruct, { tabWidth: 2 }).code
     // Pain in the ass but only way to test this w/out a file and fs patching
@@ -145,44 +142,44 @@ let {
 } = parent;
     `.replace('\n', '').trim()
 
-    assert(code === result, 'Should turn destruct into a destructed VariableDeclaration')
+    expect(code === result).toBeTruthy()
   });
 })
 
-describe('req', function () {
-  it('should create a simple require constant', function () {
+describe('req', () => {
+  it('should create a simple require constant', () => {
     const fs = req('fs', 'fs')
-    assert(n.VariableDeclaration.check(fs), 'fs is VariableDeclaration')
+    expect(n.VariableDeclaration.check(fs)).toBeTruthy()
 
     const code = recast.print(fs).code
-    assert(code === 'const fs = require("fs");', 'Should create a default require call')
+    expect(code === 'const fs = require("fs");').toBeTruthy()
   });
 
-  it('should require a package without passing name', function () {
+  it('should require a package without passing name', () => {
     const fs = req.package('fs')
-    assert(n.VariableDeclaration.check(fs), 'fs is VariableDeclaration')
+    expect(n.VariableDeclaration.check(fs)).toBeTruthy()
 
     const code = recast.print(fs).code
-    assert(code === 'const fs = require("fs");', 'Should create a default require call')
+    expect(code === 'const fs = require("fs");').toBeTruthy()
   });
 
-  it('should allow for custom scope', function () {
+  it('should allow for custom scope', () => {
     const fs = req.custom(scoped)('fs', 'fs')
-    assert(n.VariableDeclaration.check(fs), 'fs is VariableDeclaration')
+    expect(n.VariableDeclaration.check(fs)).toBeTruthy()
 
     const code = recast.print(fs).code
-    assert(code === 'let fs = require("fs");', 'Should create a default require call')
+    expect(code === 'let fs = require("fs");').toBeTruthy()
   });
 
-  it('should throw for invalid scope', function () {
+  it('should throw for invalid scope', () => {
     assert.throw(() => req.custom('Invalid')('fs', 'fs'), TypeError, 'Invalid type string')
   });
 
-  it('should allow for destructuring', function () {
+  it('should allow for destructuring', () => {
     const destruct = req.destructuring('fs',
       property.shorthand('promises')
     )
-    assert(n.VariableDeclaration.check(destruct), 'destruct is VariableDeclaration')
+    expect(n.VariableDeclaration.check(destruct)).toBeTruthy()
 
     const code = recast.print(destruct, { tabWidth: 2 }).code
     // Pain in the ass but only way to test this w/out a file and fs patching
@@ -192,6 +189,6 @@ const {
 } = require("fs");
     `.replace('\n', '').trim()
 
-    assert(code === result, 'Should turn destruct into a destructed VariableDeclaration')
+    expect(code === result).toBeTruthy()
   });
 });
