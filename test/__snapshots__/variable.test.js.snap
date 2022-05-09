@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`variable.constant should create a constant 1`] = `
+Object {
+  "comments": null,
+  "declarations": Array [
+    Object {
+      "comments": null,
+      "id": Object {
+        "comments": null,
+        "loc": null,
+        "name": "name",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "init": Object {
+        "comments": null,
+        "loc": null,
+        "regex": null,
+        "type": "Literal",
+        "value": "value",
+      },
+      "loc": null,
+      "type": "VariableDeclarator",
+    },
+  ],
+  "kind": "const",
+  "loc": null,
+  "type": "VariableDeclaration",
+}
+`;
+
+exports[`variable.scoped should create a constant 1`] = `
+Object {
+  "comments": null,
+  "declarations": Array [
+    Object {
+      "comments": null,
+      "id": Object {
+        "comments": null,
+        "loc": null,
+        "name": "name",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "init": Object {
+        "comments": null,
+        "loc": null,
+        "regex": null,
+        "type": "Literal",
+        "value": "value",
+      },
+      "loc": null,
+      "type": "VariableDeclarator",
+    },
+  ],
+  "kind": "let",
+  "loc": null,
+  "type": "VariableDeclaration",
+}
+`;
+
+exports[`variable.variable should create a constant 1`] = `
+Object {
+  "comments": null,
+  "declarations": Array [
+    Object {
+      "comments": null,
+      "id": Object {
+        "comments": null,
+        "loc": null,
+        "name": "name",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "init": Object {
+        "comments": null,
+        "loc": null,
+        "regex": null,
+        "type": "Literal",
+        "value": "value",
+      },
+      "loc": null,
+      "type": "VariableDeclarator",
+    },
+  ],
+  "kind": "var",
+  "loc": null,
+  "type": "VariableDeclaration",
+}
+`;

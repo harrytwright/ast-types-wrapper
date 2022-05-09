@@ -1,90 +1,96 @@
-const chai = require('chai')
 const recast = require('recast')
 const { namedTypes: n, builders: b } = require('ast-types')
 
-const assert = chai.assert
-
 const { member, computedMember, computedLiteralMember, property, object, pattern } = require('../src/object')
 
-describe('object.member', function () {
-  it('should create a member', function () {
+describe('object.member', () => {
+  it('should create a member', () => {
     const dot = member('key', 'value')
-    assert(n.MemberExpression.check(dot), 'dot is a dot-notation')
+
+    expect(dot).toMatchSnapshot()
+    expect(n.MemberExpression.check(dot)).toBeTruthy()
   })
 
-  it('should by variadic', function () {
+  it('should by variadic', () => {
     const dot = member('key', 'value', 'or', 'another', 'one')
-    assert(n.MemberExpression.check(dot), 'dot is a dot-notation')
+    expect(n.MemberExpression.check(dot)).toBeTruthy()
 
     const code = recast.print(dot).code
-    assert(code === 'key.value.or.another.one', 'Should align the members in order')
+    expect(code).toEqual('key.value.or.another.one')
   })
 
-  it('should throw on an invalid member', function () {
-    assert.throw(() => member('key', 5), Error, 'Invalid identifier type: ' + 5)
+  it('should throw on an invalid member', () => {
+    expect(() => member('key', 5)).toThrow('Invalid identifier type: ' + 5)
   })
 })
 
-describe('object.computedMember', function () {
-  it('should create a member', function () {
+describe('object.computedMember', () => {
+  it('should create a member', () => {
     const square = computedMember('key', 'value')
-    assert(n.MemberExpression.check(square), 'square is square-notation')
+
+    expect(square).toMatchSnapshot()
+    expect(n.MemberExpression.check(square)).toBeTruthy()
   })
 
-  it('should throw on invalid method', function () {
-    assert.throw(() => computedMember('key', 5), Error, 'Invalid identifier type: ' + 5)
+  it('should throw on invalid method', () => {
+    expect(() => computedMember('key', 5)).toThrow('Invalid identifier type: ' + 5)
   })
 
-  it('should by variadic', function () {
+  it('should by variadic', () => {
     const square = computedMember('key', 'value', 'or', 'another', 'one')
-    assert(n.MemberExpression.check(square), 'dot is a square-notation')
+    expect(n.MemberExpression.check(square)).toBeTruthy()
 
     const code = recast.print(square).code
-    assert(code === 'key[value][or][another][one]', 'Should align the members in order')
+    expect(code).toEqual('key[value][or][another][one]')
   })
 })
 
-describe('object.computedLiteralMember', function () {
-  it('should create a member', function () {
+describe('object.computedLiteralMember', () => {
+  it('should create a member', () => {
     const square = computedLiteralMember('key', 'value')
-    assert(n.MemberExpression.check(square), 'square is square-notation')
+
+    expect(square).toMatchSnapshot()
+    expect(n.MemberExpression.check(square)).toBeTruthy()
   })
 
-  it('should by variadic', function () {
+  it('should by variadic', () => {
     const square = computedLiteralMember('key', 'value', 'or', 'another', 'one', 5)
-    assert(n.MemberExpression.check(square), 'dot is a square-notation')
+    expect(n.MemberExpression.check(square)).toBeTruthy()
 
     const code = recast.print(square).code
-    assert(code === 'key["value"]["or"]["another"]["one"][5]', 'Should align the members in order')
+    expect(code).toEqual('key["value"]["or"]["another"]["one"][5]')
   })
 })
 
-describe('property', function () {
-  it('should create a simple property', function () {
+describe('property', () => {
+  it('should create a simple property', () => {
     const prop = property('key', 'value')
-    assert(n.Property.check(prop), 'prop is a property')
+
+    expect(prop).toMatchSnapshot()
+    expect(n.Property.check(prop)).toBeTruthy()
   });
 
-  it('should create a simple property with valid code', function () {
+  it('should create a simple property with valid code', () => {
     const prop = property('key', 'value')
-    assert(n.Property.check(prop), 'prop is a property')
+    expect(n.Property.check(prop)).toBeTruthy()
 
     const code = recast.print(prop).code
-    assert(code === 'key: "value"', 'Should create default property')
+    expect(code).toEqual('key: "value"')
   });
 });
 
 // TODO: Maybe add more tests?? But these cover the basis
-describe('object', function () {
-  it('should create an object using an object', function () {
+describe('object', () => {
+  it('should create an object using an object', () => {
     const obj = object({
       key: 'value'
     })
 
-    assert(n.ObjectExpression.check(obj), 'obj is an object')
+    expect(obj).toMatchSnapshot()
+    expect(n.ObjectExpression.check(obj)).toBeTruthy()
   });
 
-  it('should create a deep object', function () {
+  it('should create a deep object', () => {
     const obj = object({
       key: {
         key: {
@@ -93,10 +99,11 @@ describe('object', function () {
       }
     })
 
-    assert(n.ObjectExpression.check(obj), 'obj is an object')
+    expect(obj).toMatchSnapshot()
+    expect(n.ObjectExpression.check(obj)).toBeTruthy()
   });
 
-  it('should create a deep object with array', function () {
+  it('should create a deep object with array', () => {
     const obj = object({
       key: {
         key: {
@@ -105,32 +112,42 @@ describe('object', function () {
       }
     })
 
-    assert(n.ObjectExpression.check(obj), 'obj is an object')
+    expect(obj).toMatchSnapshot()
+    expect(n.ObjectExpression.check(obj)).toBeTruthy()
   });
 
-  it('should create an object using an object with custom properties', function () {
-    const obj = object.withProperties(
-      property.spread('args')
-    )
+  it(
+    'should create an object using an object with custom properties',
+    () => {
+      const obj = object.withProperties(
+        property.spread('args')
+      )
 
-    assert(n.ObjectExpression.check(obj), 'obj is an object')
-  });
+      expect(obj).toMatchSnapshot()
+      expect(n.ObjectExpression.check(obj)).toBeTruthy()
+    }
+  );
 });
 
-describe('pattern', function () {
-  it('should create an object using an object', function () {
+describe('pattern', () => {
+  it('should create an object using an object', () => {
     const obj = pattern({
       key: 'value'
     })
 
-    assert(n.ObjectPattern.check(obj), 'obj is an object')
+    expect(obj).toMatchSnapshot()
+    expect(n.ObjectPattern.check(obj)).toBeTruthy()
   });
 
-  it('should create an object using an object with custom properties', function () {
-    const obj = pattern.withProperties(
-      property.spread('args')
-    )
+  it(
+    'should create an object using an object with custom properties',
+    () => {
+      const obj = pattern.withProperties(
+        property.spread('args')
+      )
 
-    assert(n.ObjectPattern.check(obj), 'obj is an object')
-  });
+      expect(obj).toMatchSnapshot()
+      expect(n.ObjectPattern.check(obj)).toBeTruthy()
+    }
+  );
 });

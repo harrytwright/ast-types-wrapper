@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils.identifier should create an identifier 1`] = `
+Object {
+  "comments": null,
+  "loc": null,
+  "name": "name",
+  "optional": false,
+  "type": "Identifier",
+  "typeAnnotation": null,
+}
+`;
