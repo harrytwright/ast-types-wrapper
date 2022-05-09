@@ -22,8 +22,31 @@ const { literal } = require('../utils')
 function object (obj) {
   const properties = []
 
+  // This is needed to prevent circular deps
+  const onArray = (arr) => {
+    return b.arrayExpression(arr.map(element => {
+      switch (typeof element) {
+        case "object":
+          if (Array.isArray(element)) return onArray(element)
+          return object(element)
+        default:
+          return literal(element)
+      }
+    }))
+  }
+
   Object.keys(obj).forEach((key) => {
-    properties.push(property(key, literal(obj[key])))
+    switch (typeof obj[key]) {
+      case "object":
+        if (Array.isArray(obj[key])) {
+          properties.push(property(key, onArray(obj[key])))
+        } else {
+          properties.push(property(key, object(obj[key])))
+        }
+        break
+      default:
+        properties.push(property(key, literal(obj[key])))
+    }
   })
 
   return b.objectExpression(properties)

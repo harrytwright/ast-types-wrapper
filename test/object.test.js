@@ -84,6 +84,30 @@ describe('object', function () {
     assert(n.ObjectExpression.check(obj), 'obj is an object')
   });
 
+  it('should create a deep object', function () {
+    const obj = object({
+      key: {
+        key: {
+          key: 'value'
+        }
+      }
+    })
+
+    assert(n.ObjectExpression.check(obj), 'obj is an object')
+  });
+
+  it('should create a deep object with array', function () {
+    const obj = object({
+      key: {
+        key: {
+          key: [1, { key: 'value' }, true, ['1', '2', 3, { key: { key: 'value' } }]]
+        }
+      }
+    })
+
+    assert(n.ObjectExpression.check(obj), 'obj is an object')
+  });
+
   it('should create an object using an object with custom properties', function () {
     const obj = object.withProperties(
       property.spread('args')
