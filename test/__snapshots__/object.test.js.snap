@@ -1,0 +1,527 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`object should create a deep object 1`] = `
+Object {
+  "comments": null,
+  "loc": null,
+  "properties": Array [
+    Object {
+      "comments": null,
+      "computed": false,
+      "decorators": null,
+      "key": Object {
+        "comments": null,
+        "loc": null,
+        "name": "key",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "kind": "init",
+      "loc": null,
+      "method": false,
+      "shorthand": false,
+      "type": "Property",
+      "value": Object {
+        "comments": null,
+        "loc": null,
+        "properties": Array [
+          Object {
+            "comments": null,
+            "computed": false,
+            "decorators": null,
+            "key": Object {
+              "comments": null,
+              "loc": null,
+              "name": "key",
+              "optional": false,
+              "type": "Identifier",
+              "typeAnnotation": null,
+            },
+            "kind": "init",
+            "loc": null,
+            "method": false,
+            "shorthand": false,
+            "type": "Property",
+            "value": Object {
+              "comments": null,
+              "loc": null,
+              "properties": Array [
+                Object {
+                  "comments": null,
+                  "computed": false,
+                  "decorators": null,
+                  "key": Object {
+                    "comments": null,
+                    "loc": null,
+                    "name": "key",
+                    "optional": false,
+                    "type": "Identifier",
+                    "typeAnnotation": null,
+                  },
+                  "kind": "init",
+                  "loc": null,
+                  "method": false,
+                  "shorthand": false,
+                  "type": "Property",
+                  "value": Object {
+                    "comments": null,
+                    "loc": null,
+                    "regex": null,
+                    "type": "Literal",
+                    "value": "value",
+                  },
+                },
+              ],
+              "type": "ObjectExpression",
+            },
+          },
+        ],
+        "type": "ObjectExpression",
+      },
+    },
+  ],
+  "type": "ObjectExpression",
+}
+`;
+
+exports[`object should create a deep object with array 1`] = `
+Object {
+  "comments": null,
+  "loc": null,
+  "properties": Array [
+    Object {
+      "comments": null,
+      "computed": false,
+      "decorators": null,
+      "key": Object {
+        "comments": null,
+        "loc": null,
+        "name": "key",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "kind": "init",
+      "loc": null,
+      "method": false,
+      "shorthand": false,
+      "type": "Property",
+      "value": Object {
+        "comments": null,
+        "loc": null,
+        "properties": Array [
+          Object {
+            "comments": null,
+            "computed": false,
+            "decorators": null,
+            "key": Object {
+              "comments": null,
+              "loc": null,
+              "name": "key",
+              "optional": false,
+              "type": "Identifier",
+              "typeAnnotation": null,
+            },
+            "kind": "init",
+            "loc": null,
+            "method": false,
+            "shorthand": false,
+            "type": "Property",
+            "value": Object {
+              "comments": null,
+              "loc": null,
+              "properties": Array [
+                Object {
+                  "comments": null,
+                  "computed": false,
+                  "decorators": null,
+                  "key": Object {
+                    "comments": null,
+                    "loc": null,
+                    "name": "key",
+                    "optional": false,
+                    "type": "Identifier",
+                    "typeAnnotation": null,
+                  },
+                  "kind": "init",
+                  "loc": null,
+                  "method": false,
+                  "shorthand": false,
+                  "type": "Property",
+                  "value": Object {
+                    "comments": null,
+                    "elements": Array [
+                      Object {
+                        "comments": null,
+                        "loc": null,
+                        "regex": null,
+                        "type": "Literal",
+                        "value": 1,
+                      },
+                      Object {
+                        "comments": null,
+                        "loc": null,
+                        "properties": Array [
+                          Object {
+                            "comments": null,
+                            "computed": false,
+                            "decorators": null,
+                            "key": Object {
+                              "comments": null,
+                              "loc": null,
+                              "name": "key",
+                              "optional": false,
+                              "type": "Identifier",
+                              "typeAnnotation": null,
+                            },
+                            "kind": "init",
+                            "loc": null,
+                            "method": false,
+                            "shorthand": false,
+                            "type": "Property",
+                            "value": Object {
+                              "comments": null,
+                              "loc": null,
+                              "regex": null,
+                              "type": "Literal",
+                              "value": "value",
+                            },
+                          },
+                        ],
+                        "type": "ObjectExpression",
+                      },
+                      Object {
+                        "comments": null,
+                        "loc": null,
+                        "regex": null,
+                        "type": "Literal",
+                        "value": true,
+                      },
+                      Object {
+                        "comments": null,
+                        "elements": Array [
+                          Object {
+                            "comments": null,
+                            "loc": null,
+                            "regex": null,
+                            "type": "Literal",
+                            "value": "1",
+                          },
+                          Object {
+                            "comments": null,
+                            "loc": null,
+                            "regex": null,
+                            "type": "Literal",
+                            "value": "2",
+                          },
+                          Object {
+                            "comments": null,
+                            "loc": null,
+                            "regex": null,
+                            "type": "Literal",
+                            "value": 3,
+                          },
+                          Object {
+                            "comments": null,
+                            "loc": null,
+                            "properties": Array [
+                              Object {
+                                "comments": null,
+                                "computed": false,
+                                "decorators": null,
+                                "key": Object {
+                                  "comments": null,
+                                  "loc": null,
+                                  "name": "key",
+                                  "optional": false,
+                                  "type": "Identifier",
+                                  "typeAnnotation": null,
+                                },
+                                "kind": "init",
+                                "loc": null,
+                                "method": false,
+                                "shorthand": false,
+                                "type": "Property",
+                                "value": Object {
+                                  "comments": null,
+                                  "loc": null,
+                                  "properties": Array [
+                                    Object {
+                                      "comments": null,
+                                      "computed": false,
+                                      "decorators": null,
+                                      "key": Object {
+                                        "comments": null,
+                                        "loc": null,
+                                        "name": "key",
+                                        "optional": false,
+                                        "type": "Identifier",
+                                        "typeAnnotation": null,
+                                      },
+                                      "kind": "init",
+                                      "loc": null,
+                                      "method": false,
+                                      "shorthand": false,
+                                      "type": "Property",
+                                      "value": Object {
+                                        "comments": null,
+                                        "loc": null,
+                                        "regex": null,
+                                        "type": "Literal",
+                                        "value": "value",
+                                      },
+                                    },
+                                  ],
+                                  "type": "ObjectExpression",
+                                },
+                              },
+                            ],
+                            "type": "ObjectExpression",
+                          },
+                        ],
+                        "loc": null,
+                        "type": "ArrayExpression",
+                      },
+                    ],
+                    "loc": null,
+                    "type": "ArrayExpression",
+                  },
+                },
+              ],
+              "type": "ObjectExpression",
+            },
+          },
+        ],
+        "type": "ObjectExpression",
+      },
+    },
+  ],
+  "type": "ObjectExpression",
+}
+`;
+
+exports[`object should create an object using an object 1`] = `
+Object {
+  "comments": null,
+  "loc": null,
+  "properties": Array [
+    Object {
+      "comments": null,
+      "computed": false,
+      "decorators": null,
+      "key": Object {
+        "comments": null,
+        "loc": null,
+        "name": "key",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "kind": "init",
+      "loc": null,
+      "method": false,
+      "shorthand": false,
+      "type": "Property",
+      "value": Object {
+        "comments": null,
+        "loc": null,
+        "regex": null,
+        "type": "Literal",
+        "value": "value",
+      },
+    },
+  ],
+  "type": "ObjectExpression",
+}
+`;
+
+exports[`object should create an object using an object with custom properties 1`] = `
+Object {
+  "comments": null,
+  "loc": null,
+  "properties": Array [
+    Object {
+      "argument": Object {
+        "comments": null,
+        "loc": null,
+        "name": "args",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "comments": null,
+      "loc": null,
+      "type": "SpreadProperty",
+    },
+  ],
+  "type": "ObjectExpression",
+}
+`;
+
+exports[`object.computedLiteralMember should create a member 1`] = `
+Object {
+  "comments": null,
+  "computed": true,
+  "loc": null,
+  "object": Object {
+    "comments": null,
+    "loc": null,
+    "name": "key",
+    "optional": false,
+    "type": "Identifier",
+    "typeAnnotation": null,
+  },
+  "optional": false,
+  "property": Object {
+    "comments": null,
+    "loc": null,
+    "regex": null,
+    "type": "Literal",
+    "value": "value",
+  },
+  "type": "MemberExpression",
+}
+`;
+
+exports[`object.computedMember should create a member 1`] = `
+Object {
+  "comments": null,
+  "computed": true,
+  "loc": null,
+  "object": Object {
+    "comments": null,
+    "loc": null,
+    "name": "key",
+    "optional": false,
+    "type": "Identifier",
+    "typeAnnotation": null,
+  },
+  "optional": false,
+  "property": Object {
+    "comments": null,
+    "loc": null,
+    "name": "value",
+    "optional": false,
+    "type": "Identifier",
+    "typeAnnotation": null,
+  },
+  "type": "MemberExpression",
+}
+`;
+
+exports[`object.member should create a member 1`] = `
+Object {
+  "comments": null,
+  "computed": false,
+  "loc": null,
+  "object": Object {
+    "comments": null,
+    "loc": null,
+    "name": "key",
+    "optional": false,
+    "type": "Identifier",
+    "typeAnnotation": null,
+  },
+  "optional": false,
+  "property": Object {
+    "comments": null,
+    "loc": null,
+    "name": "value",
+    "optional": false,
+    "type": "Identifier",
+    "typeAnnotation": null,
+  },
+  "type": "MemberExpression",
+}
+`;
+
+exports[`pattern should create an object using an object 1`] = `
+Object {
+  "comments": null,
+  "decorators": null,
+  "loc": null,
+  "properties": Array [
+    Object {
+      "comments": null,
+      "computed": false,
+      "decorators": null,
+      "key": Object {
+        "comments": null,
+        "loc": null,
+        "name": "key",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "kind": "init",
+      "loc": null,
+      "method": false,
+      "shorthand": false,
+      "type": "Property",
+      "value": Object {
+        "comments": null,
+        "loc": null,
+        "regex": null,
+        "type": "Literal",
+        "value": "value",
+      },
+    },
+  ],
+  "type": "ObjectPattern",
+  "typeAnnotation": null,
+}
+`;
+
+exports[`pattern should create an object using an object with custom properties 1`] = `
+Object {
+  "comments": null,
+  "decorators": null,
+  "loc": null,
+  "properties": Array [
+    Object {
+      "argument": Object {
+        "comments": null,
+        "loc": null,
+        "name": "args",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "comments": null,
+      "loc": null,
+      "type": "SpreadProperty",
+    },
+  ],
+  "type": "ObjectPattern",
+  "typeAnnotation": null,
+}
+`;
+
+exports[`property should create a simple property 1`] = `
+Object {
+  "comments": null,
+  "computed": false,
+  "decorators": null,
+  "key": Object {
+    "comments": null,
+    "loc": null,
+    "name": "key",
+    "optional": false,
+    "type": "Identifier",
+    "typeAnnotation": null,
+  },
+  "kind": "init",
+  "loc": null,
+  "method": false,
+  "shorthand": false,
+  "type": "Property",
+  "value": Object {
+    "comments": null,
+    "loc": null,
+    "regex": null,
+    "type": "Literal",
+    "value": "value",
+  },
+}
+`;

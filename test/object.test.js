@@ -6,6 +6,8 @@ const { member, computedMember, computedLiteralMember, property, object, pattern
 describe('object.member', () => {
   it('should create a member', () => {
     const dot = member('key', 'value')
+
+    expect(dot).toMatchSnapshot()
     expect(n.MemberExpression.check(dot)).toBeTruthy()
   })
 
@@ -14,22 +16,24 @@ describe('object.member', () => {
     expect(n.MemberExpression.check(dot)).toBeTruthy()
 
     const code = recast.print(dot).code
-    expect(code === 'key.value.or.another.one').toBeTruthy()
+    expect(code).toEqual('key.value.or.another.one')
   })
 
   it('should throw on an invalid member', () => {
-    assert.throw(() => member('key', 5), Error, 'Invalid identifier type: ' + 5)
+    expect(() => member('key', 5)).toThrow('Invalid identifier type: ' + 5)
   })
 })
 
 describe('object.computedMember', () => {
   it('should create a member', () => {
     const square = computedMember('key', 'value')
+
+    expect(square).toMatchSnapshot()
     expect(n.MemberExpression.check(square)).toBeTruthy()
   })
 
   it('should throw on invalid method', () => {
-    assert.throw(() => computedMember('key', 5), Error, 'Invalid identifier type: ' + 5)
+    expect(() => computedMember('key', 5)).toThrow('Invalid identifier type: ' + 5)
   })
 
   it('should by variadic', () => {
@@ -37,13 +41,15 @@ describe('object.computedMember', () => {
     expect(n.MemberExpression.check(square)).toBeTruthy()
 
     const code = recast.print(square).code
-    expect(code === 'key[value][or][another][one]').toBeTruthy()
+    expect(code).toEqual('key[value][or][another][one]')
   })
 })
 
 describe('object.computedLiteralMember', () => {
   it('should create a member', () => {
     const square = computedLiteralMember('key', 'value')
+
+    expect(square).toMatchSnapshot()
     expect(n.MemberExpression.check(square)).toBeTruthy()
   })
 
@@ -52,13 +58,15 @@ describe('object.computedLiteralMember', () => {
     expect(n.MemberExpression.check(square)).toBeTruthy()
 
     const code = recast.print(square).code
-    expect(code === 'key["value"]["or"]["another"]["one"][5]').toBeTruthy()
+    expect(code).toEqual('key["value"]["or"]["another"]["one"][5]')
   })
 })
 
 describe('property', () => {
   it('should create a simple property', () => {
     const prop = property('key', 'value')
+
+    expect(prop).toMatchSnapshot()
     expect(n.Property.check(prop)).toBeTruthy()
   });
 
@@ -67,7 +75,7 @@ describe('property', () => {
     expect(n.Property.check(prop)).toBeTruthy()
 
     const code = recast.print(prop).code
-    expect(code === 'key: "value"').toBeTruthy()
+    expect(code).toEqual('key: "value"')
   });
 });
 
@@ -78,6 +86,7 @@ describe('object', () => {
       key: 'value'
     })
 
+    expect(obj).toMatchSnapshot()
     expect(n.ObjectExpression.check(obj)).toBeTruthy()
   });
 
@@ -90,6 +99,7 @@ describe('object', () => {
       }
     })
 
+    expect(obj).toMatchSnapshot()
     expect(n.ObjectExpression.check(obj)).toBeTruthy()
   });
 
@@ -102,6 +112,7 @@ describe('object', () => {
       }
     })
 
+    expect(obj).toMatchSnapshot()
     expect(n.ObjectExpression.check(obj)).toBeTruthy()
   });
 
@@ -112,6 +123,7 @@ describe('object', () => {
         property.spread('args')
       )
 
+      expect(obj).toMatchSnapshot()
       expect(n.ObjectExpression.check(obj)).toBeTruthy()
     }
   );
@@ -123,6 +135,7 @@ describe('pattern', () => {
       key: 'value'
     })
 
+    expect(obj).toMatchSnapshot()
     expect(n.ObjectPattern.check(obj)).toBeTruthy()
   });
 
@@ -133,6 +146,7 @@ describe('pattern', () => {
         property.spread('args')
       )
 
+      expect(obj).toMatchSnapshot()
       expect(n.ObjectPattern.check(obj)).toBeTruthy()
     }
   );

@@ -6,6 +6,8 @@ const { identifier } = require('../src/utils')
 describe('utils.identifier', () => {
   it('should create an identifier', () => {
     const name = identifier('name')
+
+    expect(name).toMatchSnapshot()
     expect(n.Identifier.check(name)).toBeTruthy()
   })
 
@@ -13,15 +15,15 @@ describe('utils.identifier', () => {
     const builtName = b.identifier('name')
     const name = identifier(builtName)
 
-    expect(builtName === name).toBeTruthy()
+    expect(builtName).toEqual(name)
   })
 
   it('should throw an error', () => {
-    assert.throw(() => identifier(5), Error, 'Invalid identifier type: ' + 5)
+    expect(() => identifier(5)).toThrow('Invalid identifier type: ' + 5)
   })
 
   it('should prints properly', () => {
     const code = recast.print(identifier('name')).code
-    expect(code === 'name').toBeTruthy()
+    expect(code).toEqual('name')
   })
 })

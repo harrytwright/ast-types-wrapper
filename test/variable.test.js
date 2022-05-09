@@ -8,6 +8,8 @@ const { constant, variable, scoped, declarator, req } = require('../src/variable
 describe('variable.constant', () => {
   it('should create a constant', () => {
     const name = constant('name', 'value')
+
+    expect(name).toMatchSnapshot()
     expect(n.VariableDeclaration.check(name)).toBeTruthy()
   })
 
@@ -16,7 +18,7 @@ describe('variable.constant', () => {
     expect(n.VariableDeclaration.check(name)).toBeTruthy()
 
     const code = recast.print(name).code
-    expect(code === 'const name = value;').toBeTruthy()
+    expect(code).toEqual('const name = value;')
   })
 
   it('should work chainable', () => {
@@ -28,7 +30,7 @@ describe('variable.constant', () => {
     expect(n.VariableDeclaration.check(chained)).toBeTruthy()
 
     const code = recast.print(chained).code
-    expect(code === 'const name = "value", value = "name";').toBeTruthy()
+    expect(code).toEqual('const name = "value", value = "name";')
   })
 
   it('should destruct objects', () => {
@@ -48,13 +50,15 @@ const {
 } = parent;
     `.replace('\n', '').trim()
 
-    expect(code === result).toBeTruthy()
+    expect(code).toEqual(result)
   });
 })
 
 describe('variable.variable', () => {
   it('should create a constant', () => {
     const name = variable('name', 'value')
+
+    expect(name).toMatchSnapshot()
     expect(n.VariableDeclaration.check(name)).toBeTruthy()
   })
 
@@ -63,7 +67,7 @@ describe('variable.variable', () => {
     expect(n.VariableDeclaration.check(name)).toBeTruthy()
 
     const code = recast.print(name).code
-    expect(code === 'var name = value;').toBeTruthy()
+    expect(code).toEqual('var name = value;')
   })
 
   it('should work chainable', () => {
@@ -75,7 +79,7 @@ describe('variable.variable', () => {
     expect(n.VariableDeclaration.check(chained)).toBeTruthy()
 
     const code = recast.print(chained).code
-    expect(code === 'var name = "value", value = "name";').toBeTruthy()
+    expect(code).toEqual('var name = "value", value = "name";')
   })
 
   it('should destruct objects', () => {
@@ -95,13 +99,15 @@ var {
 } = parent;
     `.replace('\n', '').trim()
 
-    expect(code === result).toBeTruthy()
+    expect(code).toEqual(result)
   });
 })
 
 describe('variable.scoped', () => {
   it('should create a constant', () => {
     const name = scoped('name', 'value')
+
+    expect(name).toMatchSnapshot()
     expect(n.VariableDeclaration.check(name)).toBeTruthy()
   })
 
@@ -110,7 +116,7 @@ describe('variable.scoped', () => {
     expect(n.VariableDeclaration.check(name)).toBeTruthy()
 
     const code = recast.print(name).code
-    expect(code === 'let name = value;').toBeTruthy()
+    expect(code).toEqual('let name = value;')
   })
 
   it('should work chainable', () => {
@@ -122,7 +128,7 @@ describe('variable.scoped', () => {
     expect(n.VariableDeclaration.check(chained)).toBeTruthy()
 
     const code = recast.print(chained).code
-    expect(code === 'let name = "value", value = "name";').toBeTruthy()
+    expect(code).toEqual('let name = "value", value = "name";')
   })
 
   it('should destruct objects', () => {
@@ -142,7 +148,7 @@ let {
 } = parent;
     `.replace('\n', '').trim()
 
-    expect(code === result).toBeTruthy()
+    expect(code).toEqual(result)
   });
 })
 
@@ -152,7 +158,7 @@ describe('req', () => {
     expect(n.VariableDeclaration.check(fs)).toBeTruthy()
 
     const code = recast.print(fs).code
-    expect(code === 'const fs = require("fs");').toBeTruthy()
+    expect(code).toEqual('const fs = require("fs");')
   });
 
   it('should require a package without passing name', () => {
@@ -160,7 +166,7 @@ describe('req', () => {
     expect(n.VariableDeclaration.check(fs)).toBeTruthy()
 
     const code = recast.print(fs).code
-    expect(code === 'const fs = require("fs");').toBeTruthy()
+    expect(code).toEqual('const fs = require("fs");')
   });
 
   it('should allow for custom scope', () => {
@@ -168,11 +174,12 @@ describe('req', () => {
     expect(n.VariableDeclaration.check(fs)).toBeTruthy()
 
     const code = recast.print(fs).code
-    expect(code === 'let fs = require("fs");').toBeTruthy()
+    expect(code).toEqual('let fs = require("fs");')
   });
 
   it('should throw for invalid scope', () => {
-    assert.throw(() => req.custom('Invalid')('fs', 'fs'), TypeError, 'Invalid type string')
+    expect(() => req.custom('Invalid')('fs', 'fs')).toThrow('Invalid type string')
+    // assert.throw(() => req.custom('Invalid')('fs', 'fs'), TypeError, 'Invalid type string')
   });
 
   it('should allow for destructuring', () => {
@@ -189,6 +196,6 @@ const {
 } = require("fs");
     `.replace('\n', '').trim()
 
-    expect(code === result).toBeTruthy()
+    expect(code).toEqual(result)
   });
 });

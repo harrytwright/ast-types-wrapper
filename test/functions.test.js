@@ -1,7 +1,6 @@
 const recast = require('recast')
 const { namedTypes: n, builders: b } = require('ast-types')
 
-const { member } = require('../src/object')
 const { identifier } = require('../src/utils')
 const { func, method } = require('../src/functions')
 
@@ -11,7 +10,7 @@ describe('func', () => {
     expect(n.CallExpression.check(globalFunction)).toBeTruthy()
 
     const code = recast.print(globalFunction).code
-    expect(code === 'global(hello)').toBeTruthy()
+    expect(code).toEqual('global(hello)')
   });
 });
 
@@ -21,11 +20,12 @@ describe('member', () => {
     expect(n.CallExpression.check(cwd)).toBeTruthy()
 
     const code = recast.print(cwd).code
-    expect(code === 'process.cwd()').toBeTruthy()
+    expect(code).toEqual('process.cwd()')
   });
 });
 
-describe('require', () => {
+// TODO
+xdescribe('require', () => {
 
 });
 

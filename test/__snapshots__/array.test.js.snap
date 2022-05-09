@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`object should create an array using an arrangement of elements 1`] = `
+Object {
+  "comments": null,
+  "elements": Array [
+    Object {
+      "comments": null,
+      "loc": null,
+      "regex": null,
+      "type": "Literal",
+      "value": 1,
+    },
+    Object {
+      "comments": null,
+      "loc": null,
+      "properties": Array [
+        Object {
+          "comments": null,
+          "computed": false,
+          "decorators": null,
+          "key": Object {
+            "comments": null,
+            "loc": null,
+            "name": "key",
+            "optional": false,
+            "type": "Identifier",
+            "typeAnnotation": null,
+          },
+          "kind": "init",
+          "loc": null,
+          "method": false,
+          "shorthand": false,
+          "type": "Property",
+          "value": Object {
+            "comments": null,
+            "loc": null,
+            "regex": null,
+            "type": "Literal",
+            "value": "value",
+          },
+        },
+      ],
+      "type": "ObjectExpression",
+    },
+    Object {
+      "comments": null,
+      "loc": null,
+      "regex": null,
+      "type": "Literal",
+      "value": true,
+    },
+    Object {
+      "comments": null,
+      "elements": Array [
+        Object {
+          "comments": null,
+          "loc": null,
+          "regex": null,
+          "type": "Literal",
+          "value": "1",
+        },
+        Object {
+          "comments": null,
+          "loc": null,
+          "regex": null,
+          "type": "Literal",
+          "value": "2",
+        },
+        Object {
+          "comments": null,
+          "loc": null,
+          "regex": null,
+          "type": "Literal",
+          "value": 3,
+        },
+        Object {
+          "comments": null,
+          "loc": null,
+          "properties": Array [
+            Object {
+              "comments": null,
+              "computed": false,
+              "decorators": null,
+              "key": Object {
+                "comments": null,
+                "loc": null,
+                "name": "key",
+                "optional": false,
+                "type": "Identifier",
+                "typeAnnotation": null,
+              },
+              "kind": "init",
+              "loc": null,
+              "method": false,
+              "shorthand": false,
+              "type": "Property",
+              "value": Object {
+                "comments": null,
+                "loc": null,
+                "properties": Array [
+                  Object {
+                    "comments": null,
+                    "computed": false,
+                    "decorators": null,
+                    "key": Object {
+                      "comments": null,
+                      "loc": null,
+                      "name": "key",
+                      "optional": false,
+                      "type": "Identifier",
+                      "typeAnnotation": null,
+                    },
+                    "kind": "init",
+                    "loc": null,
+                    "method": false,
+                    "shorthand": false,
+                    "type": "Property",
+                    "value": Object {
+                      "comments": null,
+                      "loc": null,
+                      "regex": null,
+                      "type": "Literal",
+                      "value": "value",
+                    },
+                  },
+                ],
+                "type": "ObjectExpression",
+              },
+            },
+          ],
+          "type": "ObjectExpression",
+        },
+      ],
+      "loc": null,
+      "type": "ArrayExpression",
+    },
+  ],
+  "loc": null,
+  "type": "ArrayExpression",
+}
+`;
+
+exports[`object should create an array using an array 1`] = `
+Object {
+  "comments": null,
+  "elements": Array [
+    Object {
+      "comments": null,
+      "loc": null,
+      "regex": null,
+      "type": "Literal",
+      "value": 1,
+    },
+    Object {
+      "comments": null,
+      "loc": null,
+      "regex": null,
+      "type": "Literal",
+      "value": 2,
+    },
+    Object {
+      "comments": null,
+      "loc": null,
+      "regex": null,
+      "type": "Literal",
+      "value": 3,
+    },
+    Object {
+      "comments": null,
+      "loc": null,
+      "regex": null,
+      "type": "Literal",
+      "value": 4,
+    },
+  ],
+  "loc": null,
+  "type": "ArrayExpression",
+}
+`;
+
+exports[`object should create an array using an array with custom properties 1`] = `
+Object {
+  "comments": null,
+  "elements": Array [
+    Object {
+      "argument": Object {
+        "comments": null,
+        "loc": null,
+        "name": "args",
+        "optional": false,
+        "type": "Identifier",
+        "typeAnnotation": null,
+      },
+      "comments": null,
+      "loc": null,
+      "type": "SpreadElement",
+    },
+  ],
+  "loc": null,
+  "type": "ArrayExpression",
+}
+`;
